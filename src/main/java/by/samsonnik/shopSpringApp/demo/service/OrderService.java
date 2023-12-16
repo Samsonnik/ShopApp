@@ -60,21 +60,24 @@ public class OrderService {
                     data.append("Product number: ");
                     data.append(cartItem.getQuantity());
                     data.append("\n");
-                    data.append("Total cost: ");
-                    data.append(order.getTotalCost());
+                    data.append("Cost for 1: ");
+                    data.append(cartItem.getProduct().getCost());
                     data.append("\n");
-                    data.append("Your email: ");
-                    data.append(order.getClientEmail());
-                    data.append("\n");
-                    data.append("Your address: ");
-                    data.append(order.getClientAddress());
-                    data.append("\n");
-                    data.append("Your town: ");
-                    data.append(order.getTownToDelivery());
-                    data.append("\n");
-                    data.append("Your phone: ");
-                    data.append(order.getClientPhone());
                 });
+        data.append("Total cost: ");
+        data.append(cartService.getCart().getTotalPrice());
+        data.append("\n");
+        data.append("Your email: ");
+        data.append(order.getClientEmail());
+        data.append("\n");
+        data.append("Your address: ");
+        data.append(order.getClientAddress());
+        data.append("\n");
+        data.append("Your town: ");
+        data.append(order.getTownToDelivery());
+        data.append("\n");
+        data.append("Your phone: ");
+        data.append(order.getClientPhone());
         return data.toString();
     }
 }
