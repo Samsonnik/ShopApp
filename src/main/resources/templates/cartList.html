@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/helloStyle.css" th:href="@{/css/helloStyle.css}"/>
+    <title>Shop</title>
+    <div class="shopHeader">
+        <h2>
+            Welcome to web store "Alibaba"
+        </h2>
+    </div>
+
+        <a th:href="@{/products}">
+            <button class="button">Get back</button>
+        </a>
+
+
+        <a th:href="@{/orderList}">
+            <button class="button">Make order</button>
+        </a>
+
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr class="tableHeader">
+        <th>Product id</th>
+        <th>Product name</th>
+        <th>Product type</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+        <th>Picture</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cartItem: ${cartItems}">
+        <td>
+            <a th:href="@{/products/{id}(id=${cartItem.getProduct().getId()})}">
+                <p th:text="${cartItem.getProduct().getId()}"/>
+            </a>
+        </td>
+        <td th:text="${cartItem.getProduct().getName()}"/>
+        <td th:text="${cartItem.getProduct().getType()}"/>
+        <td th:text="${cartItem.getQuantity()}"/>
+        <td th:text="${cartItem.getProduct().getCost()}"/>
+        <td>
+            <img class="product-tile" th:src="${cartItem.getProduct().getImagePath}"/>
+        </td>
+        <td>
+            <form th:action="@{/products/cartList/delete}">
+                <input type="hidden" th:value="${cartItem.getProduct().getId()}" name="productId"/>
+                <button class="button" type="submit">delete from cart</button>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>Total price is</td>
+        <td colspan="5" th:text="${totalPrice}" style="text-align: left"/>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<hr/>
+</body>
+</html>

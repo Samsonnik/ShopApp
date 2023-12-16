@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/helloStyle.css" th:href="@{/css/helloStyle.css}"/>
+    <title>Shop</title>
+    <div class="shopHeader">
+        <h2>
+            Welcome to web store "Alibaba"
+        </h2>
+    </div>
+    <h3>
+        <a th:href="@{/products}">
+            <button>Get back</button>
+        </a>
+    </h3>
+</head>
+<body>
+<form class="form" th:method="POST" th:action="@{/auth/registration}" th:object="${client}">
+    <div class="field">
+        <label class="lable" for="firstName">Insert first name:</label>
+        <input class="inputQuery" type="text" th:field="*{firstName}" id="firstName"/>
+        <div style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Wrong first name
+        </div>
+    </div>
+    <br/>
+    <div class="field">
+        <label class="lable" for="secondName">Insert second name:</label>
+        <input class="inputQuery" type="text" th:field="*{secondName}" id="secondName"/>
+        <div style="color: red" th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}">Wrong second name
+        </div>
+    </div>
+    <br/>
+    <label class="lable" for="email">Insert email:</label>
+    <input class="inputQuery" type="text" th:field="*{email}" id="email"/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Wrong email</div>
+    <br/>
+    <label class="lable" for="town">Insert town:</label>
+    <input class="inputQuery" type="text" th:field="*{town}" id="town"/>
+    <div style="color: red" th:if="${#fields.hasErrors('town')}" th:errors="*{town}">Wrong town</div>
+    <br/>
+    <label class="lable" for="age">Insert age:</label>
+    <input class="inputQuery" type="text" th:field="*{age}" id="age"/>
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Wrong age</div>
+    <br/>
+    <label class="lable" for="password">Insert password:</label>
+    <input class="inputQuery" type="password" th:field="*{password}" id="password"/>
+    <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Wrong password</div>
+    <br/>
+    <input type="submit" value="Register"/>
+</form>
+</body>
+</html>

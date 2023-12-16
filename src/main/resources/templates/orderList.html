@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/helloStyle.css" th:href="@{/css/helloStyle.css}"/>
+    <title>Shop</title>
+    <div class="shopHeader">
+        <h2>
+            Welcome to web store "Alibaba"
+        </h2>
+    </div>
+    <a th:href="@{/products}">
+        <button class="button">Get back</button>
+    </a>
+</head>
+<body>
+<form th:method="POST" th:action="@{/performOrder}" th:object="${orderDTO}">
+    <label>
+        <select th:name="townToDelivery">
+            <option value="Minsk">Minsk</option>
+            <option value="Gomel">Gomel</option>
+            <option value="Brest">Brest</option>
+            <option value="Mogilev">Mogilev</option>
+            <option value="Vitebsk">Vitebsk</option>
+            <option value="Grodno">Grodno</option>
+        </select>
+    </label>
+    <label>
+        <select th:name="sendCheck">
+            <option value="Yes">Send check</option>
+            <option value="No">Dont send check</option>
+        </select>
+    </label>
+    <br/>
+    <label class="lable" for="clientPhone">Insert your phone number:</label>
+    <input class="inputQuery" type="text" th:field="*{clientPhone}" id="clientPhone"/>
+    <div style="color: red" th:if="${#fields.hasErrors('clientPhone')}"
+         th:errors="*{clientPhone}">Wrong phone number
+    </div>
+    <br/>
+    <label class="lable" for="clientAddress">Insert your address:</label>
+    <input class="inputQuery" type="text" th:field="*{clientAddress}" id="clientAddress"/>
+    <div style="color: red" th:if="${#fields.hasErrors('clientAddress')}"
+         th:errors="*{clientAddress}">Wrong address
+    </div>
+    <br/>
+    <label class="lable" for="clientEmail">Insert your email:</label>
+    <input class="inputQuery" type="text" th:field="*{clientEmail}" id="clientEmail"/>
+    <div style="color: red" th:if="${#fields.hasErrors('clientEmail')}"
+         th:errors="*{clientEmail}">Wrong email
+    </div>
+    <input type="submit" value="Perform"/>
+</form>
+</body>
+</html>

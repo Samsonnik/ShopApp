@@ -1,0 +1,208 @@
+.table {
+    border: 1px solid #eee;
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+
+.table td {
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+}
+
+.table tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+    background: #F7F7F7;
+}
+
+img.product-tile {
+    max-width: 256px;
+}
+
+.shopHeader {
+    background: #FFF4ED;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.shopHeader h2 {
+    font-family: 'Righteous', cursive;
+    position: relative;
+    color: #3CA1D9;
+    display: inline-block;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    font-size: 3em;
+    padding: 11px 60px;
+    margin: 0;
+    line-height: 1;
+}
+
+.shopHeader h2:before, .shopHeader h2:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    background: repeating-linear-gradient(180deg, transparent, transparent 2px, #3CA1D9 2px, #3CA1D9 4px);
+}
+
+.shopHeader h2:before {
+    left: 0;
+}
+
+.shopHeader h2:after {
+    right: 0;
+}
+
+@media (max-width: 420px) {
+    .shopHeader h2 {
+        font-size: 2em;
+    }
+}
+
+.tableHeader {
+    font-family: 'Righteous', cursive;
+    position: relative;
+    color: #3CA1D9;
+    margin: 0;
+    line-height: 1;
+}
+
+/*<------------------------------------------------------------------------------------------------------------------->*/
+.button {
+    appearance: none;
+    background-color: #3CA1D9;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.button:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #3CA1D9;
+}
+
+.button:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+}
+
+.button:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+}
+
+.button:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+.inputQuery {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #E0FFFF;
+    color: black;
+}
+
+/*<------------------------------------------------------------------------------------------------------------------->*/
+
+
+.sidenav {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #efefef;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.mainContent {
+    margin-right: 250px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.advertisementHeader {
+    font-family: 'Righteous', cursive;
+    position: relative;
+    color: #3CA1D9;
+    display: inline-block;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    font-size: 2em;
+    padding: 10px 10px;
+    margin: 0;
+    line-height: 1;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.lable {
+    width: 70%;
+    margin-left: 23px;
+}
+

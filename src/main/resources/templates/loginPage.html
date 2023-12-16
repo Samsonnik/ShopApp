@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/helloStyle.css" th:href="@{/css/helloStyle.css}"/>
+    <title>Shop</title>
+    <div class="shopHeader">
+        <h2>
+            Welcome to web store "Alibaba"
+        </h2>
+    </div>
+    <h3>
+        <a th:href="@{/products}">
+            <button class="button">Get back</button>
+        </a>
+        <a th:href="@{/auth/registration}">
+            <button class="button">Register new user</button>
+        </a>
+    </h3>
+</head>
+<body>
+<form method="post" action="/process">
+    <div class="field">
+        <label for="username">Insert user's first name:</label>
+        <input class="inputQuery" type="text" name="username" id="username"/>
+    </div>
+    <br/>
+    <div class="field">
+        <label for="password">Insert user's password:</label>
+        <input class="inputQuery" type="password" name="password" id="password"/>
+    </div>
+    <br/>
+    <input class="button" type="submit" value="Login"/>
+    <div th:if="${param.error}" style="color: red">
+        Wrong user's name or password
+    </div>
+</form>
+</body>
+</html>

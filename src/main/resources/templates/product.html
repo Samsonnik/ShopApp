@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/helloStyle.css" th:href="@{/css/helloStyle.css}"/>
+    <title>Shop</title>
+    <div class="shopHeader">
+        <h2>
+            Welcome to web store "Alibaba"
+        </h2>
+    </div>
+    <h3>
+        <a th:href="@{/products}">
+            <button class="button">Get back</button>
+        </a>
+    </h3>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr class="tableHeader">
+        <th>Product id</th>
+        <th>Product name</th>
+        <th>Product type</th>
+        <th>Available on the store</th>
+        <th>Cost</th>
+        <th>Picture</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${product.getId}"/>
+        <td th:text="${product.getName}"/>
+        <td th:text="${product.getType}"/>
+        <td th:text="${product.getNumberOnTheStore}"/>
+        <td th:text="${product.getCost()}"/>
+        <td>
+            <img class="product-tile" th:src="${product.getImagePath}"/>
+        </td>
+        <td>
+            <form th:action="@{/products/add}">
+                <select th:name="productQuantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <input type="hidden" th:value="${product.getId()}" name="productId"/>
+                <button class="button" type="submit">add to cart</button>
+            </form>
+            <div th:text="${success}" style="color: green"/>
+            <div th:text="${error}" style="color: red"/>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+<hr/>
+</body>
+</html>

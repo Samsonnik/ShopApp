@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/helloStyle.css" th:href="@{/css/helloStyle.css}"/>
+    <title>Shop</title>
+    <div class="shopHeader">
+        <h2>
+            Welcome to web store "Alibaba"
+        </h2>
+    </div>
+</head>
+<body>
+<div class="sidenav">
+    <a href="#about">
+        <div class="advertisementHeader">
+            Продам гараж
+        </div>
+    </a>
+    <img class="image" th:src="@{/images/garage.jpg}"/>
+</div>
+<div class="mainContent">
+    <a th:href="@{/products/cartList}">
+        <button class="button">Cart list</button>
+    </a>
+    <a th:href="@{/auth/logout}">
+        <button class="button">Logout</button>
+    </a>
+    <a th:href="@{/auth/loginPage}">
+        <button class="button">Sign in</button>
+    </a>
+    <form class="form">
+        <label class="lable">
+            <input class="inputQuery" name="query" placeholder="Search here...">
+        </label>
+        <button class="button">search</button>
+    </form>
+    <table class="table">
+        <thead>
+        <tr class="tableHeader">
+            <th>Product id</th>
+            <th>Product name</th>
+            <th>Product type</th>
+            <th>Available on the store</th>
+            <th>
+                Cost
+                <a href="/products?sort=increase">Inc</a>
+                <a href="?sort=decrease">Dec</a>
+            </th>
+            <th>Picture</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product: ${products}">
+            <td>
+                <a th:href="@{/products/{id}(id=${product.getId})}">
+                    <p th:text="${product.getId}"/>
+                </a>
+            </td>
+            <td th:text="${product.getName}"/>
+            <td th:text="${product.getType}"/>
+            <td th:text="${product.getNumberOnTheStore}"/>
+            <td th:text="${product.getCost}"/>
+            <td>
+                <img class="product-tile" th:src="${product.getImagePath}"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<hr/>
+</body>
+</html>
